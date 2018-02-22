@@ -1,0 +1,34 @@
+{% extends 'product/base.html' %}
+{% block head_title %}Viewing category {{ category.title }}{% endblock %}
+{% block title %}
+	<div style="color: #FFD700">
+		{{ category.title }}
+	</div>
+{% endblock %}
+
+{% block content %}
+    {% if products %}
+       
+        <div class="row">
+            {% for product in products %}
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <a href="{{ product.get_absolute_url }}">
+                            <img src="{{product.image.url}}" alt="Lights" style="width:100%">
+                            <div class="caption">
+                                <p style="color: #FFD700">{{ product.title }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+            {% else %}
+        <div class="card card-outline-primary mb-3 text-center" style="background-color: black">
+            <div class="card-block">
+                <blockquote class="card-blockquote">
+                    <p style="color: #FFD700; text-align: left">There are no product.</p>
+                </blockquote>
+            </div>
+        </div>  
+    {% endif %}
+{% endblock %}

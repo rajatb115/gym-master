@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
+	    <link rel="shortcut icon" href="{% static "img/239X165px.png"  %}">
+        <title>{% block head_title %}Health/Fitness{% endblock %}</title>
+        <link href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+
+	    <!-- Custom fonts for this template -->
+	    <link href="{% static "vendor/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+	    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+	    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	    <!-- Custom styles for this template -->
+	    <link href="{% static "css/grayscale.min.css" %}" rel="stylesheet">
+    </head>
+
+
+    <body id="page-top">
+    	<!-- Navigation -->
+	    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+	    	<div class="container">
+	        	<a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}"><img style="height:60px" src="{% static "img/239X165px.png"  %}"></a>
+	        	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="color: #FFD700">
+	        		Menu
+	          		<i class="fa fa-bars"></i>
+	        	</button>
+		        <div class="collapse navbar-collapse" id="navbarResponsive">
+		        	<ul class="navbar-nav ml-auto">
+		            	<li class="nav-item">
+		            		<a class="nav-link js-scroll-trigger" href="{% url 'home' %}" style="color: #FFD700">Home</a>
+		            	</li>
+		           		<!-- <li class="nav-item">
+		              		<a class="nav-link js-scroll-trigger" href="{% url 'home' %}" style="color: #FFD700">Contact</a>
+		            	</li>-->
+		            	<li class="nav-item">
+		              		<a class="nav-link js-scroll-trigger" href="{% url 'health' %}" style="color: #FFD700">Health/Fitness</a>
+		            	</li>
+		            	<li class="nav-item">
+		              		<a class="nav-link js-scroll-trigger" href="{% url 'politics' %}" style="color: #FFD700">Power/Politics</a>
+		            	</li>
+		            	<li class="nav-item">
+		              		<a class="nav-link js-scroll-trigger" href="{% url 'entrepreneurship' %}" style="color: #FFD700">Entrepreneurship</a>
+		            	</li>
+		             	<li class="nav-item">
+		              		<a class="nav-link js-scroll-trigger" href="{% url 'product' %}" style="color: #FFD700">Product</a>
+		            	</li>
+		          	</ul>
+		        </div>
+	      	</div>
+	    </nav>
+
+	    <section class="content-section">
+	      <div class="container">
+	        <div class="row">
+	          <div class="col-lg-8 mx-auto">
+	          <h3>{% block title %}Welcome to Health block{% endblock %}</h3>
+	        {% block content %}
+
+	        {% endblock %}
+	          </div>
+	        </div>
+	      </div>
+	    </section>
+
+	    <!-- Footer -->
+	    <footer>
+	      <div class="container text-center">
+	        <p>Copyright &copy; www.jyotshred.com 2018</p>
+	      </div>
+	    </footer>
+
+	    <!-- Bootstrap core JavaScript -->
+	    <script src="{% static "vendor/jquery/jquery.min.js"  %}"></script>
+	    <script src="{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+
+	    <!-- Plugin JavaScript -->
+	    <script src="{% static "vendor/jquery-easing/jquery.easing.min.js" %}"></script>
+
+	    <!-- Custom scripts for this template -->
+	    <script src="{% static "js/grayscale.min.js" %}"></script>
+	</body>
+</html>

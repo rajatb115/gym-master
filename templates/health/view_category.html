@@ -1,0 +1,39 @@
+{% extends 'health/base.html' %}
+{% block head_title %}Viewing category {{ category.title }}{% endblock %}
+{% block title %}
+	<div style="color: #FFD700">
+		{{ category.title }}
+	</div>
+{% endblock %}
+
+{% block content %}
+    {% if posts %}
+        
+        <div class="container">
+            <div class="panel-group">
+                {% for post in posts %}    <!-- for loop -->
+
+                    <div class="panel panel-default" style="border-bottom: 2px solid; border-color: white;padding-bottom: 2px;padding-top: 4px">
+                        <div class="panel-heading"><a id="asdf" href="{{ post.get_absolute_url }}" style="color: #FFD700">{{ post.title }}</a></div>
+                        <script type="text/javascript">
+                            $(document).ready(function(){
+                                var maxLength = 90;
+                                $(".show-read-more").each(function(){
+                                    var myStr = $(this).text();
+                                    if($.trim(myStr).length > maxLength){
+                                        var newStr = myStr.substring(0, maxLength);
+                                        $(this).empty().html(newStr);
+                                        $(this).append(' ...');
+                                    }
+                                });
+                            });
+                        </script>
+                        <div class="panel-body" ><span class="show-read-more">{{ post.body|safe }}</span></div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <p>There are no posts.</p>
+    {% endif %}
+{% endblock %}

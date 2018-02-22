@@ -1,0 +1,68 @@
+{% extends 'entrepreneur/base.html' %}
+{% block title %}Welcome to Entrepreneurship blog{% endblock %}
+
+{% block content %}
+  	<div class="row">
+    	<div class="col-md-4">
+    		<h2>Categories</h2>
+		    {% if categories %}
+		        <ul>
+		        {% for category in categories %}
+		            <li style="text-align: left"><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+		        {% endfor %}
+		        </ul>
+		    {% else %}
+		        <p style="color: #FFD700; text-align: left">There are no posts.</p>
+		    {% endif %}
+    	</div>
+    	<div class="col-md-8">
+    		<h2>Posts</h2>
+    		{% if posts %}
+
+    		<div class="container">
+	    		<div class="panel-group">
+	    			{% for post in posts %}    <!-- for loop -->
+
+		    			<div class="panel panel-default" style="border-bottom: 2px solid; border-color: white;padding-bottom: 2px;padding-top: 4px">
+      						<div class="panel-heading"><a id="asdf" href="{{ post.get_absolute_url }}" style="color: #FFD700">{{ post.title }}</a></div>
+      						<script type="text/javascript">
+
+							    $(document).ready(function(){
+
+							        var maxLength = 90;
+
+							        $(".show-read-more").each(function(){
+
+							            var myStr = $(this).text();
+
+							            if($.trim(myStr).length > maxLength){
+
+							                var newStr = myStr.substring(0, maxLength);
+							                $(this).empty().html(newStr);
+
+							                $(this).append(' ...');
+							            }
+
+							        });
+
+							    });
+
+					    	</script>
+
+      						<div class="panel-body" ><span class="show-read-more">{{ post.body|safe }}</span></div>
+    					</div>
+    				{% endfor %}
+	    		</div>
+		    </div>
+		    {% else %}
+    			<div class="card card-outline-primary mb-3 text-center" style="background-color: black">
+  					<div class="card-block">
+    					<blockquote class="card-blockquote">
+        					<p style="color: #FFD700; text-align: left">There are no posts.</p>
+        				</blockquote>
+  					</div>
+				</div>   
+    		{% endif %}
+    	</div>
+  	</div>
+{% endblock %}

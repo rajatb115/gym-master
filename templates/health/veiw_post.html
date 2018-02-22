@@ -1,0 +1,11 @@
+{% extends 'health/base.html' %}
+{% block head_title %}{{ post.title }}{% endblock %}
+{% block title %}
+	<div style="color: #FFD700;border-bottom: 3px solid white;">
+		{{ post.title }}
+	</div>
+{% endblock %}
+
+{% block content %}
+    {{ post.body|safe }}
+{% endblock %}
